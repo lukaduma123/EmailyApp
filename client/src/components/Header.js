@@ -1,18 +1,17 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
-import {Link} from "react-router-dom";
-import Payments from "./Payments";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import Payments from './Payments';
 
 class Header extends Component {
   render() {
-    console.log(this.props.auth);
     return (
       <nav>
         <div className='nav-wrapper'>
-          <Link to={this.props.auth ? "/surveys" : "/"} className='brand-logo'>
+          <Link to={this.props.auth ? '/surveys' : '/'} className='brand-logo'>
             Emaily
           </Link>
-          <ul id='nav-mobile' className='right'>
+          <ul id='nav-mobile' className='right hide-on-med-and-down'>
             {this.props.auth === null ? (
               <p>Loading</p>
             ) : this.props.auth === false ? (
@@ -24,7 +23,7 @@ class Header extends Component {
                 <li key='1'>
                   <Payments />
                 </li>,
-                <li key='2' style={{margin: "0 10px"}}>
+                <li key='2' style={{margin: '0 10px'}}>
                   Credits : {this.props.auth.credits}
                 </li>,
                 <li key='3'>
